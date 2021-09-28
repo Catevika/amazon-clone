@@ -1,4 +1,5 @@
 node_modules
+INFO.txt
 .DS_Store
 dist
 dist-ssr
