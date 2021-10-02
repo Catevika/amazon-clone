@@ -5,7 +5,7 @@ import Subtotal from '../Subtotal/Subtotal';
 import './Checkout.css';
 
 const Checkout = () => {
-	const [{ basket }, dispatch] = useStateValue();
+	const [{ basket, user }, dispatch] = useStateValue();
 
 	return (
 		<div className='checkout'>
@@ -15,15 +15,18 @@ const Checkout = () => {
 					alt='ocean Credit Card Ad banner'
 					className='checkout__ad'
 				/>
+				<h3>Hello {basket?.length}</h3>
 				<h2 className='checkout__title'>Your Shopping Basket</h2>
 				{basket.map((item) => (
-					<CheckoutProduct
-						id={item.id}
-						image={item.image}
-						title={item.title}
-						price={item.price}
-						rating={item.rating}
-					/>
+					<div key={item.id}>
+						<CheckoutProduct
+							id={item.id}
+							title={item.title}
+							image={item.image}
+							price={item.price}
+							rating={item.rating}
+						/>
+					</div>
 				))}
 			</div>
 			<div className='checkout-right'>

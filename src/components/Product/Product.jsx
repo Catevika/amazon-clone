@@ -3,8 +3,9 @@ import './Product.css';
 import StarRateIcon from '@mui/icons-material/StarRate';
 import { useStateValue } from '../../context/StateProvider';
 
-const Product = ({ title, price, rating, image }) => {
+const Product = ({ id, title, price, rating, image }) => {
 	const [{ basket }, dispatch] = useStateValue();
+
 	const addToBasket = () => {
 		dispatch({
 			type: 'ADD TO BASKET',
