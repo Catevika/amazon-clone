@@ -4,9 +4,18 @@ import { useStateValue } from '../../context/StateProvider';
 import './Header.css';
 import SearchIcon from '@mui/icons-material/Search';
 import { ShoppingBasket } from '@mui/icons-material';
+import { auth } from '../../firebaseConfig/firebase';
 
 const Header = () => {
-	const [{ basket }, dispatch] = useStateValue();
+	const [{ basket, user }, dispatch] = useStateValue();
+	console.log(basket);
+
+	const handleAuthentication = () => {
+		if (user) {
+			auth.signOut();
+		}
+	};
+
 	return (
 		<div className='header'>
 			<Link to='/'>
@@ -17,17 +26,36 @@ const Header = () => {
 				/>
 			</Link>
 			<div className='header__search'>
-				<input type='text' className='header__searchInput' />
+				<label htmlFor='search' className='header__search--label' />
+				<input
+					type='text'
+					id='search'
+					placeholder='Search'
+					className='header__searchInput'
+				/>
 				<SearchIcon className='header__searchIcon' />
 			</div>
 			<div className='header__nav'>
-				<div className='header__option'>
-					<span className='header__optionLineOne'>Hello Guest</span>
-					<span className='header__optionLineTwo'>Sign In</span>
-				</div>
+				{user ? (
+					<Link to='/'>
+						<div className='header__option' onClick={handleAuthentication}>
+							<span className='header__optionLineOne'>
+								Hello {`${user.email}`}
+							</span>
+							<span className='header__optionLineTwo'>Sign Out</span>
+						</div>
+					</Link>
+				) : (
+					<Link to={'/login'}>
+						<div className='header__option' onClick={handleAuthentication}>
+							<span className='header__optionLineOne'>Hello Guest</span>
+							<span className='header__optionLineTwo'>Sign In</span>
+						</div>
+					</Link>
+				)}
 				<div className='header__option'>
 					<span className='header__optionLineOne'>Returns</span>
-					<span className='header__optionLineTwo'>Orders</span>
+					<span className='header__optionLineTwo'> &amp; Orders</span>
 				</div>
 				<div className='header__option'>
 					<span className='header__optionLineOne'>Your</span>
