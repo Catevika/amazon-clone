@@ -5,10 +5,9 @@ import StarRateIcon from '@mui/icons-material/StarRate';
 
 const CheckoutProduct = ({ id, title, price, rating, image }) => {
 	const [{ basket }, dispatch] = useStateValue();
-
 	const removeFromBasket = () => {
 		dispatch({
-			type: 'REMOVE FROM BASKET',
+			type: 'REMOVE_FROM_BASKET',
 			id: id
 		});
 	};
@@ -32,8 +31,8 @@ const CheckoutProduct = ({ id, title, price, rating, image }) => {
 								</p>
 							))}
 					</div>
-					<button onClick={removeFromBasket}>Remove from Basket</button>
 				</div>
+				<button onClick={removeFromBasket}>Remove from Basket</button>
 			</div>
 		</div>
 	);

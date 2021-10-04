@@ -15,7 +15,7 @@ const Checkout = () => {
 					alt='ocean Credit Card Ad banner'
 					className='checkout__ad'
 				/>
-				<h3>Hello {basket?.length}</h3>
+				<h3>Hello {user?.email}</h3>
 				<h2 className='checkout__title'>Your Shopping Basket</h2>
 				{basket.map((item) => (
 					<div key={item.id}>

@@ -31,4 +31,9 @@
 
 .checkoutProduct__rating {
 	display: flex;
+	flex-direction: column;
+}
+
+.product__rating {
+	display: flex;
 }
