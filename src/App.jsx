@@ -7,6 +7,9 @@ import Checkout from './components/Checkout/Checkout';
 import Login from './components/Login/Login';
 import { useStateValue } from './context/StateProvider';
 import { auth } from './firebaseConfig/firebase';
+import Payment from './components/Payment/Payment';
+
+// ! https://dashboard.stripe.com/test/dashboard pour STRIPE
 
 function App() {
 	const [{}, dispatch] = useStateValue();
@@ -40,6 +43,10 @@ function App() {
 					<Route path='/checkout'>
 						<Header />
 						<Checkout />
+					</Route>
+					<Route path='/payment'>
+						<Header />
+						<Payment />
 					</Route>
 				</Switch>
 			</div>

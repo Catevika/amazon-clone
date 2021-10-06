@@ -44,9 +44,9 @@ const Home = () => {
 					/>
 					<Product
 						id='345756'
-						title='10" Android tablet 32GB, 3GB RAM, Support 5G WiFi'
-						price='139.99'
-						image='https://m.media-amazon.com/images/I/61FmK1vbrBS._AC_SL1400_.jpg'
+						title='Samsung Galaxy Tab A 8.0" 4G LTE'
+						price='184.00'
+						image='https://m.media-amazon.com/images/I/51RScDZUEfL._AC_SL1000_.jpg'
 						rating={3}
 					/>
 				</div>
